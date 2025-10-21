@@ -19,9 +19,9 @@ function getHumanChoice() {
   if (humanChoice === false || humanChoice === null) {
     alert("OK!");
   } else if (
-    humanChoice.toLowerCase() !== "rock" &&
-    humanChoice.toLowerCase() !== "paper" &&
-    humanChoice.toLowerCase() !== "scissors"
+    humanChoice !== "rock" &&
+    humanChoice !== "paper" &&
+    humanChoice !== "scissors"
   ) {
     alert("Input Invalid");
   } else {
@@ -57,16 +57,30 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function playGame() {
-  for (let i = 0; i < 5; i++) {
-    let humanChoice = getHumanChoice();
-    let computerChoice = getComputerChoice();
-    playRound(humanChoice, computerChoice);
+  const playerConfirm = confirm("Do you want to play Rock, Paper, Scissors?");
+
+  if (playerConfirm === true) {
+    alert("Enjoy the game!");
+
+    for (let i = 0; i < 5; i++) {
+      let humanChoice = getHumanChoice();
+      let computerChoice = getComputerChoice();
+      playRound(humanChoice, computerChoice);
+    }
+  } else {
+    alert("Ok, Goodbye!");
   }
 
   if (humanScore > computerScore) {
-    alert("Congratulations! You won the game!");
+    alert(`Congratulations! You won the game!
+    
+    Your Score : ${humanScore}
+    Computer Score : ${computerScore}`);
   } else if (computerScore > humanScore) {
-    alert("Congratulations! Computer won the game!");
+    alert(`Congratulations! Computer won the game!
+      
+    Your Score : ${humanScore}
+    Computer Score : ${computerScore}`);
   } else {
     alert("The game ended in a tie!");
   }
