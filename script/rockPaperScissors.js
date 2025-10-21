@@ -16,8 +16,8 @@ function getComputerChoice() {
 function getHumanChoice() {
   let humanChoice = prompt("Rock, Paper, or Scissors?");
 
-  if (humanChoice === null) {
-    alert("Input Invalid");
+  if (humanChoice === false || humanChoice === null) {
+    alert("OK!");
   } else if (
     humanChoice.toLowerCase() !== "rock" &&
     humanChoice.toLowerCase() !== "paper" &&
